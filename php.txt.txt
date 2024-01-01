@@ -1,0 +1,47 @@
+Create a PHP script that declares two variables: $firstName and $lastName. Assign your own first and last name to these variables. Write a function called createUsername that takes these two variables as parameters, concatenates them, and returns a username in lowercase with no spaces and @ at the beginning. Finally, display the generated username using echo or print.
+Example:
+Input: firstname = “Roshan”, lastname = “Shrestha”.
+Output: “@roshanshrestha”
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+function createUsername($firstName,$lastName){
+	echo "@". strtolower($firstName) . strtolower($lastName);
+}
+
+createUsername("Sudarshan","Kapali");
+?>
+
+</body>
+</html>
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Create a PHP script that declares three variables: $num1, $num2, and $result. Assign any numeric values to $num1 and $num2. Write a function called calculateSum that takes these two variables as parameters, calculates their sum, and stores the result in the $result variable. Finally, display the result using echo or print. Additional requirement, If the result is the floating point number, Round up the result to the ceiling value.
+Example:
+Input: num1 = 5.6, num2 = 5
+Output: 11
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$num1 = 5.5;
+$num2 = 6.6;
+
+function calculateSum($num1,$num2){
+	$result = round($num1  + $num2);
+    echo "sum is $result";
+}
+
+calculateSum($num1,$num2);
+
+?>
+
+</body>
+</html>
