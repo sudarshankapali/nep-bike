@@ -13,10 +13,27 @@
         .back{
         width: 100%;
         }
-/* media query */
+/* media query for phones*/
 @media (max-width: 576px) {
     img .back{
         width: 100%;
         height: 100vh;
     }
+}
+/* for tablets and laptop */
+@media (max-width: 768px) {
+    img .back{
+        width: 100%;
+        height: 100vh;
+    }
+    .card{
+        margin: auto;
+    }
+}
+/* for all except phones*/
+@media (min-width: 576px) {
+    .card{
+        margin: 10px auto;
+    }
+    
 }
