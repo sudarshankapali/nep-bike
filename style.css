@@ -13,6 +13,8 @@
         .back{
         width: 100%;
         }
+
+
 /* media query for phones*/
 @media (max-width: 576px) {
     img .back{
@@ -20,7 +22,7 @@
         height: 100vh;
     }
 }
-/* for tablets and laptop */
+/* for tablets */
 @media (max-width: 768px) {
     img .back{
         width: 100%;
@@ -28,6 +30,22 @@
     }
     .card{
         margin: auto;
+    }
+}
+/* @media (max-width: 992px) {
+    img .back{
+        width: 100%;
+        height: 100vh;
+    }
+    .card{
+        margin: auto 400px;
+    }
+} */
+/* for laptops (992px to 1200px) */
+@media (min-width: 992px) and (max-width: 1200px) {
+    .card {
+        width: 48%; /* Set the width to occupy almost half of the container */
+        margin: 10px 30%; /* Adjust margin for spacing between cards */
     }
 }
 /* for all except phones*/
