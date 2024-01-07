@@ -1,20 +1,23 @@
 <?php
-session_start();
-if(!isset($_SESSION["ranNumber"])){
-    $_SESSION["ranNumber"] = rand(1,10);
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+    session_start();
+    if(!isset($_SESSION["ranNumber"])){
+        $_SESSION["ranNumber"] = rand(1,10);
+    }
+    $ranNumber = $_SESSION["ranNumber"];
+    echo "Random number: " . $ranNumber . "<br>";
+    if($ranNumber == $_POST["number"]){
+        echo "correct guess";
+        session_destroy();
+    }else if($ranNumber < $_POST["number"]){
+        echo "too high guess";
+    }else if($ranNumber > $_POST["number"]){
+        echo "too low guess";
+    }else{
+        echo "guess gara pasa";
+    }
 }
-$ranNumber = $_SESSION["ranNumber"];
-echo "Random number: " . $ranNumber . "<br>";
-if($ranNumber == $_POST["number"]){
-    echo "correct guess";
-    session_destroy();
-}else if($ranNumber < $_POST["number"]){
-    echo "too high guess";
-}else if($ranNumber > $_POST["number"]){
-    echo "too low guess";
-}else{
-    echo "guess gara pasa";
-}
+
 
 ?>
 <!DOCTYPE html>
