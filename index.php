@@ -1,22 +1,21 @@
 <?php
-if($_SERVER['REQUEST_METHOD'] == "POST"){
-    session_start();
-    if(!isset($_SESSION["ranNumber"])){
-        $_SESSION["ranNumber"] = rand(1,10);
-    }
-    $ranNumber = $_SESSION["ranNumber"];
-    echo "Random number: " . $ranNumber . "<br>";
-    if($ranNumber == $_POST["number"]){
-        echo "correct guess";
-        session_destroy();
-    }else if($ranNumber < $_POST["number"]){
-        echo "too high guess";
-    }else if($ranNumber > $_POST["number"]){
-        echo "too low guess";
-    }else{
-        echo "guess gara pasa";
+
+session_start();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $value = $_POST["quote"];
+
+    // Uncomment or modify the database-related code if needed
+    // $sql = "INSERT INTO quotes (title) VALUES ('$value')";
+    // $result = mysqli_query($conn, $sql);
+    
+    // Check if the value is not empty before redirecting
+    if ($value) {
+        $_SESSION["quotes"][] = $value;
+        header("Location: /");
+        exit();
     }
 }
+$quotes = isset($_SESSION["quotes"]) ? $_SESSION["quotes"] : [];
 
 
 ?>
@@ -25,13 +24,25 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guessing game in php</title>
+    <title>To do list website</title>
 </head>
 <body>
-    <h1>Guess the number I am thinking pasa!</h1>
-    <form method="post">
-        <input autofocus type="number" name="number" />
-        <button type="submit">check</button>
-    </form>
+    <section title="header">
+<h1>hello world</h1>
+</section>
+<section>
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <input type="text" name="quote" required>
+        <button type="submit">Save</button>
+</section>
+<section>
+    <ul>
+        <?php
+        foreach ($quotes as $quote) {
+            echo "<li>" . $quote . "</li>";
+        }
+        ?>
+    </ul>
+</section>
 </body>
 </html>
