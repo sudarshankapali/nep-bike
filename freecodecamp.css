@@ -75,4 +75,6 @@
     display: grid;
     font-size: 3rem;
     grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    align-items: center;
   }
